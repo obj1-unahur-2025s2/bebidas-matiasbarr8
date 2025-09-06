@@ -1,9 +1,43 @@
-import example.pepita
-
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+import tito.*
+import bebidas.*
+describe "Pruebas con Tito" {
+  test "Rendimiento de Whisky para una dosis de 1 cm3" {
+    assert.equals(0.9, whisky.rendimiento(1))
+  }
+    test "Rendimiento de Terere para una dosis de 300 cm3" {
+    assert.equals(30, terere.rendimiento(300))
   }
 
+  test "Rendimiento de Cianuro para cualquier dosis de cm3" {
+    assert.equals(0, cianuro.rendimiento(1))
+  }
+
+  test "Rendimiento de Terere para una dosis de 30 cm3" {
+    assert.equals(3, terere.rendimiento(30))
+  }
+
+  test "Rendimiento de Terere para una dosis de 6 cm3" {
+    assert.equals(1, terere.rendimiento(6))
+  }
+}
+
+describe "Pruebas de tito" {
+  test "Peso de tito" {
+    assert.equals(70, tito.peso())
+  }
+
+  test "velocidad de Tito despues de consumir 3 cm3 de whisky" {
+    tito.consumir(3, whisky)
+    assert.equals(5.103, tito.velocidad())
+  }
+
+  test "velocidad de Tito despues de consumir 8 cm3 de Terere" {
+    tito.consumir(3, terere)
+    assert.equals(7, tito.velocidad())
+  }
+
+  test "velocidad de Tito despues de consumir 9 cm3 de Cianuro" {
+    tito.consumir(9, cianuro)
+    assert.equals(0, tito.velocidad())
+  }
 }
